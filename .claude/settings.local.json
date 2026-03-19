@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:ittumo.net)",
+      "WebFetch(domain:www.instagram.com)"
+    ]
+  }
+}

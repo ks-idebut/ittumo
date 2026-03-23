@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { ALL_ITEMS, CATEGORIES, TOTAL_ITEM_COUNT } from "@/data/items";
 import RandomItemCarousel from "@/components/RandomItemCarousel";
+import BeforeAfter from "@/components/BeforeAfter";
+import PhotoGuide from "@/components/PhotoGuide";
+import HeroSlider from "@/components/HeroSlider";
 
 const FEATURED_ITEMS = ALL_ITEMS.filter((item) => item.isFeatured);
 
@@ -32,21 +35,11 @@ const CATEGORY_PREVIEW = CATEGORIES.filter((c) => c.id !== "featured").slice(0, 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-warm-gray">
-        <div className="max-w-6xl mx-auto px-4 py-20 md:py-28 text-center">
-          <p className="text-primary-dark font-medium mb-4 tracking-widest text-sm">
-            ペットのオリジナルグッズ専門店
-          </p>
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-            うちの子を<br />
-            <span className="text-primary">世界にひとつ</span>のグッズに
-          </h1>
-          <p className="text-lg text-foreground/60 mb-4 max-w-xl mx-auto leading-relaxed">
-            お気に入りの写真1枚で、マグカップからペアルックまで。<br className="hidden md:block" />
-            自社工場だから<strong>1個からOK</strong>、しかも<strong>日本最安値</strong>。
-          </p>
-          <p className="text-2xl font-bold text-accent mb-10">
+      {/* Hero with sliding visuals */}
+      <section className="bg-warm-gray relative overflow-hidden">
+        <HeroSlider />
+        <div className="relative max-w-6xl mx-auto px-4 pb-12 text-center">
+          <p className="text-2xl font-bold text-accent mb-8">
             全{TOTAL_ITEM_COUNT}アイテム以上
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -73,6 +66,19 @@ export default function Home() {
           <p className="text-center text-foreground/50 text-sm">アクセスするたびに違うアイテムが表示されます</p>
         </div>
         <RandomItemCarousel />
+      </section>
+
+      {/* Before → After */}
+      <section className="py-16 md:py-24 bg-warm-gray">
+        <div className="max-w-6xl mx-auto px-4">
+          <p className="text-center text-primary-dark text-sm tracking-widest mb-2">BEFORE → AFTER</p>
+          <h2 className="text-3xl font-bold text-center mb-4">写真がグッズに変わる瞬間</h2>
+          <p className="text-center text-foreground/60 mb-12">お客様の写真1枚が、世界にひとつのアイテムに</p>
+          <BeforeAfter />
+          <p className="text-center text-foreground/40 text-xs mt-8">
+            ※実際の商品写真は準備中です。写真の切り抜き・色補正・フレーム合成はすべてスタッフが対応します。
+          </p>
+        </div>
       </section>
 
       {/* 3 Features */}
@@ -191,6 +197,19 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Photo Guide */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-4xl mx-auto px-4">
+          <p className="text-center text-primary-dark text-sm tracking-widest mb-2">PHOTO GUIDE</p>
+          <h2 className="text-3xl font-bold text-center mb-4">きれいに仕上がる写真のコツ</h2>
+          <p className="text-center text-foreground/60 mb-12">仕上がりの品質は写真で決まります</p>
+          <PhotoGuide />
+          <p className="text-center text-foreground/40 text-xs mt-6">
+            ※写真の切り抜き・色補正はスタッフが無料で対応します。迷ったらそのままお送りください。
+          </p>
         </div>
       </section>
 

@@ -35,10 +35,14 @@ const CATEGORY_PREVIEW = CATEGORIES.filter((c) => c.id !== "featured").slice(0, 
 export default function Home() {
   return (
     <>
-      {/* Hero with sliding visuals */}
-      <section className="bg-warm-gray relative overflow-hidden">
+      {/* Hero - full bleed image slider */}
+      <section className="relative">
         <HeroSlider />
-        <div className="relative max-w-6xl mx-auto px-4 pb-12 text-center">
+      </section>
+
+      {/* CTA buttons */}
+      <section className="bg-warm-gray py-10">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="text-2xl font-bold text-accent mb-8">
             全{TOTAL_ITEM_COUNT}アイテム以上
           </p>

@@ -15,9 +15,12 @@ export default function OrderPage({
 
   const [petName, setPetName] = useState("");
   const [petType, setPetType] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
   const [notes, setNotes] = useState("");
   const [photos, setPhotos] = useState<{ file: File; preview: string }[]>([]);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
 
   if (!item) {
@@ -48,10 +51,39 @@ export default function OrderPage({
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Supabase/API連携
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    try {
+      // TODO: 写真をSupabase Storageにアップロード（環境変数設定後）
+      const photoUrls = photos.map((p) => p.preview); // 仮: プレビューURL
+
+      const res = await fetch("/api/omakase", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          itemId: id,
+          petName,
+          petType,
+          customerEmail,
+          notes,
+          photoUrls,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "送信に失敗しました");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "エラーが発生しました");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -239,6 +271,25 @@ export default function OrderPage({
               />
             </div>
 
+            {/* Email */}
+            <div>
+              <label className="block font-bold text-sm mb-2">
+                メールアドレス
+                <span className="text-red-400 ml-1">*</span>
+              </label>
+              <input
+                type="email"
+                value={customerEmail}
+                onChange={(e) => setCustomerEmail(e.target.value)}
+                placeholder="example@email.com"
+                required
+                className="w-full border border-foreground/20 rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+              />
+              <p className="text-xs text-foreground/40 mt-1">
+                仕上がりイメージの送付先になります
+              </p>
+            </div>
+
             {/* Notes */}
             <div>
               <label className="block font-bold text-sm mb-2">
@@ -264,13 +315,20 @@ export default function OrderPage({
               </ol>
             </div>
 
+            {/* Error */}
+            {error && (
+              <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-600 text-sm">
+                {error}
+              </div>
+            )}
+
             {/* Submit */}
             <button
               type="submit"
-              disabled={photos.length === 0 || !petName}
+              disabled={photos.length === 0 || !petName || !customerEmail || submitting}
               className="w-full bg-accent text-white py-4 rounded-full text-lg font-bold hover:bg-accent/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              デザインを依頼する
+              {submitting ? "送信中..." : "デザインを依頼する"}
             </button>
             <p className="text-xs text-foreground/40 text-center">
               この時点では料金は発生しません

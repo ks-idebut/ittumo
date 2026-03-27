@@ -2,7 +2,24 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:ittumo.net)",
-      "WebFetch(domain:www.instagram.com)"
+      "WebFetch(domain:www.instagram.com)",
+      "mcp__Claude_Preview__preview_start",
+      "WebSearch",
+      "WebFetch(domain:www.peppynet.com)",
+      "WebFetch(domain:www.idog.jp)",
+      "WebFetch(domain:www.shutterfly.com)",
+      "WebFetch(domain:crownandpaw.com)",
+      "WebFetch(domain:www.pawsionate.com)",
+      "WebFetch(domain:www.original-pet.com)",
+      "WebFetch(domain:www.me-q.jp)",
+      "WebFetch(domain:fun-create.jp)",
+      "WebFetch(domain:pf-pets.com)",
+      "WebFetch(domain:original-goods.orilab.jp)",
+      "WebFetch(domain:media.equall.jp)",
+      "WebFetch(domain:www.petgo.jp)",
+      "WebFetch(domain:www.freestitch.jp)",
+      "WebFetch(domain:www.bsearchtech.com)",
+      "WebFetch(domain:www.shopping-charm.jp)"
     ]
   }
 }

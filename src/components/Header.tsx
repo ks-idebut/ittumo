@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  if (pathname.startsWith("/admin")) return null;
 
   return (
     <header className="bg-white border-b border-warm-gray-dark sticky top-0 z-50">

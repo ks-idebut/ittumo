@@ -57,7 +57,7 @@ export default async function ItemDetailPage({
                   href={`/items?category=${item.category}`}
                   className="hover:text-primary"
                 >
-                  {category.label}
+                  {category.name}
                 </Link>
                 <span>/</span>
               </>

@@ -79,9 +79,10 @@ export default function ItemsPage() {
           {/* Items Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filteredItems.map((item) => (
-              <div
+              <Link
                 key={item.id}
-                className="bg-white border border-warm-gray-dark rounded-2xl p-5 hover:shadow-lg transition-shadow group"
+                href={`/items/${item.id}`}
+                className="bg-white border border-warm-gray-dark rounded-2xl p-5 hover:shadow-lg transition-shadow group block"
               >
                 {/* Placeholder for item image */}
                 <div className="w-full aspect-square bg-warm-gray rounded-xl mb-4 flex items-center justify-center">
@@ -105,7 +106,7 @@ export default function ItemsPage() {
                 <h3 className="font-bold text-sm mb-1 group-hover:text-primary transition-colors">{item.name}</h3>
                 <p className="text-xs text-foreground/50 mb-2 line-clamp-2">{item.description}</p>
                 <p className="text-primary font-bold">&yen;{item.price.toLocaleString()}〜</p>
-              </div>
+              </Link>
             ))}
           </div>
 

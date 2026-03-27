@@ -32,6 +32,13 @@ const SLIDES = [
     image: "/images/hero/slide1.png",
     fallbackLabel: "ペアルック",
   },
+  {
+    id: 5,
+    title: "季節ごとに新しい\nオリジナルフレーム",
+    subtitle: "桜・ひまわり・クリスマス…うちの子の写真に、季節の彩りをプラス。毎月新デザインが登場。",
+    image: "/images/hero/slide5.png",
+    fallbackLabel: "季節のフレーム",
+  },
 ];
 
 export default function HeroSlider() {
@@ -51,7 +58,7 @@ export default function HeroSlider() {
   const slide = SLIDES[current];
 
   return (
-    <div className="relative h-[80vh] min-h-[500px] max-h-[800px] overflow-hidden">
+    <div className="relative h-[92vh] min-h-[600px] max-h-[1000px] overflow-hidden">
       {/* Full-bleed background images */}
       {SLIDES.map((s, i) => (
         <div

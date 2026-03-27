@@ -57,9 +57,11 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-lg font-bold text-foreground mb-3">4. ペット写真の取り扱い</h2>
               <p>
-                ご注文時にアップロードいただいたペット写真は、オリジナルグッズの制作のみに使用します。
-                制作完了後は、お客様のご要望に応じて削除いたします。写真を第三者に提供したり、
-                広告・宣伝目的で無断使用することはありません（SNS等への掲載はお客様の同意を得た場合のみ）。
+                当サービスは完全受注生産のため、ご注文時にアップロードいただいたペット写真は
+                お客様ごとのオリジナルグッズ制作のみに使用します。
+                制作・発送完了後は、お客様のご要望に応じて速やかに削除いたします。
+                写真を第三者に提供したり、広告・宣伝目的で無断使用することはありません
+                （SNS等への掲載はお客様の明示的な同意を得た場合のみ）。
               </p>
             </section>
 
@@ -100,6 +102,7 @@ export default function PrivacyPage() {
               <h2 className="text-lg font-bold text-foreground mb-3">9. お問い合わせ</h2>
               <p>
                 個人情報の取り扱いに関するお問い合わせは、以下よりご連絡ください。<br />
+                運営責任者：関根健太郎<br />
                 メール：<a href="mailto:info@ittumo.net" className="text-primary hover:underline">info@ittumo.net</a>
               </p>
             </section>

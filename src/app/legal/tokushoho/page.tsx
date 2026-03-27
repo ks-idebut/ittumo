@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 const ITEMS = [
   { label: "販売業者", value: "ittumo" },
   { label: "運営責任者", value: "関根健太郎" },
-  { label: "所在地", value: "お問い合わせいただいた場合に遅滞なく開示いたします" },
-  { label: "電話番号", value: "お問い合わせいただいた場合に遅滞なく開示いたします" },
+  { label: "所在地", value: "東京都足立区西新井5-6-7" },
+  { label: "電話番号", value: "03-3856-9556" },
   { label: "メールアドレス", value: "info@ittumo.net" },
   { label: "販売URL", value: "https://ittumo.net" },
   { label: "商品の販売価格", value: "各商品ページに記載（税込）" },

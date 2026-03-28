@@ -8,28 +8,28 @@ const SLIDES = [
     id: 1,
     title: "うちの子を\n世界にひとつのマグカップに",
     subtitle: "お名前入りフレームで特別感たっぷり。毎日使うものだからこそ、うちの子と一緒に。",
-    image: "/images/hero/slide4.png",
+    image: "/images/hero/slide1.png",
     fallbackLabel: "マグカップ",
   },
   {
     id: 2,
     title: "抱きしめたくなる\nうちの子クッション",
     subtitle: "ダイカットで立体的に再現。ソファに置くだけで癒しの空間に。",
-    image: "/images/hero/slide3.png",
+    image: "/images/hero/slide2.png",
     fallbackLabel: "クッション",
   },
   {
     id: 3,
     title: "もしもの時の安心を\nうちの子迷子札",
     subtitle: "骨型ステンレスにUV印刷。かわいいだけじゃない、大切な子を守るアイテム。",
-    image: "/images/hero/slide2.png",
+    image: "/images/hero/slide3.png",
     fallbackLabel: "迷子札",
   },
   {
     id: 4,
     title: "ペアルックで\n可愛いお揃い",
     subtitle: "わんちゃんとお揃いのオリジナルデザイン。お散歩がもっと楽しくなる。",
-    image: "/images/hero/slide1.png",
+    image: "/images/hero/slide4.png",
     fallbackLabel: "ペアルック",
   },
   {
@@ -58,7 +58,7 @@ export default function HeroSlider() {
   const slide = SLIDES[current];
 
   return (
-    <div className="relative h-[75vh] min-h-[480px] max-h-[820px] overflow-hidden bg-black">
+    <div className="relative h-[75vh] min-h-[480px] max-h-[820px] overflow-hidden">
       {/* Full-bleed background images */}
       {SLIDES.map((s, i) => (
         <div
@@ -71,7 +71,7 @@ export default function HeroSlider() {
             src={s.image}
             alt={s.fallbackLabel}
             fill
-            className="object-contain"
+            className="object-cover"
             priority={i === 0}
             sizes="100vw"
           />

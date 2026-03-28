@@ -58,7 +58,7 @@ export default function HeroSlider() {
   const slide = SLIDES[current];
 
   return (
-    <div className="relative h-[50vh] min-h-[340px] max-h-[560px] overflow-hidden">
+    <div className="relative h-[65vh] min-h-[420px] max-h-[720px] overflow-hidden">
       {/* Full-bleed background images */}
       {SLIDES.map((s, i) => (
         <div

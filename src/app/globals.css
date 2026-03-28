@@ -50,6 +50,16 @@ body {
   animation-play-state: paused;
 }
 
+/* Ken Burns - hero image slow pan up */
+@keyframes kenburns-up {
+  0%   { transform: scale(1.06) translateY(0%); }
+  100% { transform: scale(1.12) translateY(-5%); }
+}
+
+.animate-kenburns {
+  animation: kenburns-up 5.5s ease-out forwards;
+}
+
 /* Floating CTA fade-in */
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(20px); }

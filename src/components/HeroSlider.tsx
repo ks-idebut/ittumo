@@ -58,7 +58,7 @@ export default function HeroSlider() {
   const slide = SLIDES[current];
 
   return (
-    <div className="relative h-[75vh] min-h-[480px] max-h-[820px] overflow-hidden">
+    <div className="relative h-[75vh] min-h-[480px] max-h-[820px] overflow-hidden bg-black">
       {/* Full-bleed background images */}
       {SLIDES.map((s, i) => (
         <div
@@ -68,11 +68,10 @@ export default function HeroSlider() {
           }`}
         >
           <Image
-            key={i === current ? `active-${current}` : s.id}
             src={s.image}
             alt={s.fallbackLabel}
             fill
-            className={`object-cover ${i === current ? "animate-kenburns" : ""}`}
+            className="object-contain"
             priority={i === 0}
             sizes="100vw"
           />
